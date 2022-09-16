@@ -177,6 +177,7 @@ def test_detect_outlier_multivariate_local():
 
 def test_detect_outlier_input_dims():
     V = np.zeros((20, 3, 2))
+    X = np.random.randint(100, size=(20,3,3))
     thr_std_devs = 1
     with pytest.raises(ValueError):
-        cleansing.detect_outliers(V, thr_std_devs, k=10)
+        cleansing.detect_outliers(V, thr_std_devs, coord=X)
